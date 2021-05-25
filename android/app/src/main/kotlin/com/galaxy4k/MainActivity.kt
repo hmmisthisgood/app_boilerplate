@@ -1,4 +1,4 @@
-package com.example.galaxy4k
+package com.galaxy4k
 
 import io.flutter.embedding.android.FlutterActivity
 

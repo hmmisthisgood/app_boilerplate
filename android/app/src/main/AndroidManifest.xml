@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.galaxy4k">
+    package="com.galaxy4k">
    <application
         android:label="galaxy4k"
         android:icon="@mipmap/ic_launcher">
