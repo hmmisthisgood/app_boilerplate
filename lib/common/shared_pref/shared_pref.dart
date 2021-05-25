@@ -21,7 +21,7 @@ class SharedPref {
 
   static Future<bool> getFirstTimeAppOpen() async {
     final _instance = await SharedPreferences.getInstance();
-    final res = await _instance.getBool(FirstTimeAppOpen);
+    final res = _instance.getBool(FirstTimeAppOpen);
     if (res == null) return true;
     return res;
   }
@@ -33,7 +33,7 @@ class SharedPref {
 
   static Future<User?> getUser() async {
     final _instance = await SharedPreferences.getInstance();
-    final res = await _instance.getString(User_Key);
+    final res = _instance.getString(User_Key);
     if (res == null) return null;
     return User.fromJson(json.decode(res));
   }

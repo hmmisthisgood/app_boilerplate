@@ -1,15 +1,14 @@
 import 'dart:async';
 
 import 'package:flutter/foundation.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:galaxy4k/common/constant/env.dart';
 import 'package:galaxy4k/common/http/api_provider.dart';
 import 'package:galaxy4k/common/http/custom_exception.dart';
 import 'package:galaxy4k/common/http/response.dart';
-import 'package:galaxy4k/common/navigation/nav.dart';
 import 'package:galaxy4k/common/shared_pref/shared_pref.dart';
 import 'package:galaxy4k/common/util/internet_check.dart';
+import 'package:galaxy4k/common/util/log.dart';
 import 'package:galaxy4k/feature/authentication/model/user.dart';
 
 import 'auth_api_provider.dart';
@@ -48,6 +47,7 @@ class UserRepository {
       await storage.deleteAll();
       return true;
     } on Exception catch (e) {
+      Log.e(e);
       print('custom exception is been obtained');
     }
     return false;
@@ -61,6 +61,7 @@ class UserRepository {
       await storage.delete(key: _tokenKey);
       return true;
     } on Exception catch (e) {
+      Log.e(e);
       print('custom exception is been obtained');
     }
     return false;
@@ -73,6 +74,7 @@ class UserRepository {
       _isLoggedIn.value = true;
       return true;
     } on Exception catch (e) {
+      Log.e(e);
       print('custom exception is been obtained');
     }
     return false;
@@ -87,6 +89,7 @@ class UserRepository {
       }
       return token != null;
     } on Exception catch (e) {
+      Log.e(e);
       print('custom exception is been obtained');
     }
     return false;
@@ -101,6 +104,7 @@ class UserRepository {
         _token = token;
       }
     } on Exception catch (e) {
+      Log.e(e);
       print('custom exception is been obtained');
     }
     return token;
@@ -134,9 +138,9 @@ class UserRepository {
   //     } else {
   //       return DataResponse.error("Unable to login!!");
   //     }
-  //   } on CustomException catch (e) {
+  //   } on CustomException catch (e) {Log.e(e);
   //     return DataResponse.error(e.message!);
-  //   } catch (e) {
+  //   } catch (e) {Log.e(e);
   //     return DataResponse.error(e.toString());
   //   }
   // }
@@ -163,9 +167,9 @@ class UserRepository {
   //     } else {
   //       return DataResponse.error("Unable to Login!!");
   //     }
-  //   } on CustomException catch (e) {
+  //   } on CustomException catch (e) {Log.e(e);
   //     return DataResponse.error(e.message!);
-  //   } catch (e) {
+  //   } catch (e) {Log.e(e);
   //     return DataResponse.error(e.toString());
   //   }
   // }
@@ -173,12 +177,13 @@ class UserRepository {
   Future<DataResponse> registerPhoneNumber(
       {required String phoneNumber}) async {
     try {
-      final _res =
-          await authApiProvider.phoneNumberLogin(phoneNumber: phoneNumber);
+      await authApiProvider.phoneNumberLogin(phoneNumber: phoneNumber);
       return DataResponse.success(true);
     } on CustomException catch (e) {
+      Log.e(e);
       return DataResponse.error(e.message!);
     } catch (e) {
+      Log.e(e);
       return DataResponse.error(e.toString());
     }
   }
@@ -196,8 +201,10 @@ class UserRepository {
       _isLoggedIn.value = true;
       return DataResponse.success(_user.value);
     } on CustomException catch (e) {
+      Log.e(e);
       return DataResponse.error(e.message!);
     } catch (e) {
+      Log.e(e);
       return DataResponse.error(e.toString());
     }
   }
@@ -221,8 +228,10 @@ class UserRepository {
       _isLoggedIn.value = true;
       return DataResponse.success(_user.value);
     } on CustomException catch (e) {
+      Log.e(e);
       return DataResponse.error(e.message!);
     } catch (e) {
+      Log.e(e);
       return DataResponse.error(e.toString());
     }
   }
@@ -238,8 +247,10 @@ class UserRepository {
       //     .updateUserSetting(_user.value!);
       return DataResponse.success(_user.value);
     } on CustomException catch (e) {
+      Log.e(e);
       return DataResponse.error(e.message!);
     } catch (e) {
+      Log.e(e);
       return DataResponse.error(e.toString());
     }
   }

@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:convert';
 import 'dart:io';
 
 import 'package:dio/dio.dart';
@@ -158,7 +157,6 @@ class ApiProvider {
     Dio _dio = Dio(
       BaseOptions(receiveDataWhenStatusError: true),
     );
-    dynamic responseJson = <String, dynamic>{};
     try {
       Map<String, String> header = {
         'accept': 'application/json',
@@ -168,7 +166,7 @@ class ApiProvider {
         header['Authorization'] = 'Bearer ' + token;
       }
       final String fileName = file.path.split('/').last;
-      final String _extention = file.path.split('.').last;
+      // final String _extention = file.path.split('.').last;
       final String type = lookupMimeType(file.path)!.split('/').first;
       print(type);
 
@@ -185,7 +183,8 @@ class ApiProvider {
       print(response.data.toString());
       return _response(response, url);
     } on DioError catch (e) {
-      responseJson = await _handleErrorResponse(e);
+      // responseJson = await _handleErrorResponse(e);
+      Log.e(e);
     } catch (e) {
       print("Hllo");
     }
@@ -195,7 +194,7 @@ class ApiProvider {
     Dio _dio = Dio(
       BaseOptions(receiveDataWhenStatusError: true),
     );
-    dynamic responseJson = <String, dynamic>{};
+    // dynamic responseJson = <String, dynamic>{};
     try {
       final Response<dynamic> response = await _dio.get<dynamic>(
         url,
@@ -217,7 +216,8 @@ class ApiProvider {
       };
       return _res;
     } on DioError catch (e) {
-      responseJson = await _handleErrorResponse(e);
+      Log.e(e);
+      // responseJson = await _handleErrorResponse(e);
     } catch (e) {
       Log.e("Error in downlodng");
     }
