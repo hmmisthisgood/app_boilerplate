@@ -1,4 +1,4 @@
-# galaxy4k
+# boilerplate
 
 A new Flutter project.
 
