@@ -10,11 +10,13 @@ import 'common/constant/env.dart';
 import 'common/util/log.dart';
 import 'package:device_preview/device_preview.dart';
 
+/// entrypoint to app in dev mode
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
   await FlutterDownloader.initialize(debug: true);
 
+  /// use run zoned to catch all uncaught exceptions
   runZonedGuarded(() {
     runApp(
       DevicePreview(
