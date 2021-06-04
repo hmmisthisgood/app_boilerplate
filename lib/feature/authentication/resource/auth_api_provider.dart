@@ -1,4 +1,4 @@
-import 'package:galaxy4k/common/http/api_provider.dart';
+import 'package:boilerplate/common/http/api_provider.dart';
 
 class AuthApiProvider {
   final ApiProvider apiProvider;

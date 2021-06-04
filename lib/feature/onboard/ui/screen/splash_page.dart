@@ -1,8 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:galaxy4k/common/route/routes.dart';
-import 'package:galaxy4k/feature/onboard/ui/widget/splash_widget.dart';
+import 'package:boilerplate/common/route/routes.dart';
+import 'package:boilerplate/feature/onboard/ui/widget/splash_widget.dart';
 
 class SplashPage extends StatefulWidget {
   @override

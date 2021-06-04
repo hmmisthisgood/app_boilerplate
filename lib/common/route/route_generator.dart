@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:galaxy4k/common/route/routes.dart';
-import 'package:galaxy4k/feature/onboard/ui/screen/onboard_page.dart';
-import 'package:galaxy4k/feature/onboard/ui/screen/splash_page.dart';
+import 'package:boilerplate/common/route/routes.dart';
+import 'package:boilerplate/feature/onboard/ui/screen/onboard_page.dart';
+import 'package:boilerplate/feature/onboard/ui/screen/splash_page.dart';
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {

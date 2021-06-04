@@ -3,7 +3,7 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
-import 'package:galaxy4k/common/util/log.dart';
+import 'package:boilerplate/common/util/log.dart';
 import 'package:mime/mime.dart';
 
 import 'package:http_parser/http_parser.dart' as parse;

@@ -1,12 +1,12 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:galaxy4k/app/theme.dart';
-import 'package:galaxy4k/common/constant/env.dart';
-import 'package:galaxy4k/common/constant/strings.dart';
-import 'package:galaxy4k/common/navigation/nav.dart';
-import 'package:galaxy4k/common/route/route_generator.dart';
-import 'package:galaxy4k/common/route/routes.dart';
-import 'package:galaxy4k/common/util/multi_bloc_listing.dart';
+import 'package:boilerplate/app/theme.dart';
+import 'package:boilerplate/common/constant/env.dart';
+import 'package:boilerplate/common/constant/strings.dart';
+import 'package:boilerplate/common/navigation/nav.dart';
+import 'package:boilerplate/common/route/route_generator.dart';
+import 'package:boilerplate/common/route/routes.dart';
+import 'package:boilerplate/common/util/multi_bloc_listing.dart';
 import 'package:device_preview/device_preview.dart';
 import 'update_wrapper.dart';
 

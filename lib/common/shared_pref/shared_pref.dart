@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:galaxy4k/feature/authentication/model/user.dart';
+import 'package:boilerplate/feature/authentication/model/user.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SharedPref {

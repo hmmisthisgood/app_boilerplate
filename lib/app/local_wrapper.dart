@@ -1,7 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 
 import 'package:flutter/material.dart';
-import 'package:galaxy4k/common/constant/custom_locale.dart';
+import 'package:boilerplate/common/constant/custom_locale.dart';
 
 class LocalWrapper extends StatelessWidget {
   final Widget _child;

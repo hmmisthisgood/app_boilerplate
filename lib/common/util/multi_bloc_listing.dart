@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:galaxy4k/common/constant/env.dart';
-import 'package:galaxy4k/common/http/api_provider.dart';
-import 'package:galaxy4k/feature/authentication/resource/user_repository.dart';
+import 'package:boilerplate/common/constant/env.dart';
+import 'package:boilerplate/common/http/api_provider.dart';
+import 'package:boilerplate/feature/authentication/resource/user_repository.dart';
 
 import 'internet_check.dart';
 

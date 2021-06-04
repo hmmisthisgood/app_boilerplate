@@ -2,14 +2,14 @@ import 'dart:async';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:galaxy4k/common/constant/env.dart';
-import 'package:galaxy4k/common/http/api_provider.dart';
-import 'package:galaxy4k/common/http/custom_exception.dart';
-import 'package:galaxy4k/common/http/response.dart';
-import 'package:galaxy4k/common/shared_pref/shared_pref.dart';
-import 'package:galaxy4k/common/util/internet_check.dart';
-import 'package:galaxy4k/common/util/log.dart';
-import 'package:galaxy4k/feature/authentication/model/user.dart';
+import 'package:boilerplate/common/constant/env.dart';
+import 'package:boilerplate/common/http/api_provider.dart';
+import 'package:boilerplate/common/http/custom_exception.dart';
+import 'package:boilerplate/common/http/response.dart';
+import 'package:boilerplate/common/shared_pref/shared_pref.dart';
+import 'package:boilerplate/common/util/internet_check.dart';
+import 'package:boilerplate/common/util/log.dart';
+import 'package:boilerplate/feature/authentication/model/user.dart';
 
 import 'auth_api_provider.dart';
 
