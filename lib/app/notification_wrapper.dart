@@ -1,11 +1,13 @@
-// class NotificationWrapper extends StatefulWidget {
-//   const NotificationWrapper({required this.child});
-//   final Widget child;
-//   @override
-//   _NotificationWrapperState createState() => _NotificationWrapperState();
-// }
+import 'package:flutter/material.dart';
 
-// class _NotificationWrapperState extends State<NotificationWrapper> {
+class NotificationWrapper extends StatefulWidget {
+  const NotificationWrapper({required this.child});
+  final Widget child;
+  @override
+  _NotificationWrapperState createState() => _NotificationWrapperState();
+}
+
+class _NotificationWrapperState extends State<NotificationWrapper> {
 //   final AndroidNotificationChannel channel = const AndroidNotificationChannel(
 //     'high_importance_channel', // id
 //     'High Importance Notifications', // title
@@ -298,8 +300,8 @@
 //     await _handleDeepLinking(notifData);
 //   }
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return widget.child;
-//   }
-// }
+  @override
+  Widget build(BuildContext context) {
+    return widget.child;
+  }
+}
