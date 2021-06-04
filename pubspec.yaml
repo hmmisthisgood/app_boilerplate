@@ -26,6 +26,7 @@ dependencies:
   # othe utils
   social_share: ^2.1.1
   equatable: ^2.0.0
+  device_preview:
 
   # state management
   bloc: ^7.0.0
