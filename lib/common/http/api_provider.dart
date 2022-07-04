@@ -4,7 +4,6 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:boilerplate/common/util/log.dart';
-import 'package:mime/mime.dart';
 
 import 'package:http_parser/http_parser.dart' as parse;
 
@@ -167,8 +166,6 @@ class ApiProvider {
       }
       final String fileName = file.path.split('/').last;
       // final String _extention = file.path.split('.').last;
-      final String type = lookupMimeType(file.path)!.split('/').first;
-      print(type);
 
       FormData formData = FormData.fromMap(<String, dynamic>{
         'file': await MultipartFile.fromFile(

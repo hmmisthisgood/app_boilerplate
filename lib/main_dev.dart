@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_downloader/flutter_downloader.dart';
 
 import 'app/app_dev.dart';
 import 'app/local_wrapper.dart';
@@ -14,7 +13,6 @@ import 'package:device_preview/device_preview.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
-  await FlutterDownloader.initialize(debug: true);
 
   /// use run zoned to catch all uncaught exceptions
   runZonedGuarded(() {
