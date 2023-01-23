@@ -1,3 +1,8 @@
 {
-  "appName": "This app"
+  "appName": "थिस अप",
+  "auth": {
+    "signIn": "साइन इन गर्नुहोस्",
+    "forgotPassword": "पासवर्ड भुल्नु भयो?",
+    "welcomeToapp": "हाम्रो एपमा स्वागत छ"
+  }
 }

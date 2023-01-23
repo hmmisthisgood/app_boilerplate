@@ -3,6 +3,7 @@ class DataResponse<T> {
   T? data;
   String? message;
   String? modelType;
+
   DataResponse.loading(this.message) : status = Status.Loading;
 
   DataResponse.success(this.data, {this.modelType}) : status = Status.Success;

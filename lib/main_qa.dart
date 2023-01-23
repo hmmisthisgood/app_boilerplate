@@ -1,9 +1,9 @@
 import 'dart:async';
 
+import 'package:boilerplate/app/app.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
-import 'app/app_stage.dart';
 import 'app/local_wrapper.dart';
 import 'common/constant/env.dart';
 import 'common/util/log.dart';

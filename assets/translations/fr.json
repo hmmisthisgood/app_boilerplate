@@ -1,0 +1,8 @@
+{
+  "appName": "cette application",
+  "auth": {
+    "signIn": "Sign IN",
+    "forgotPassword": "Forgot Password",
+    "welcomeToapp": "Bienvenue sur notre application"
+  }
+}

@@ -1,4 +1,6 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:boilerplate/app/theme.dart';
 import 'package:boilerplate/common/constant/env.dart';
@@ -26,20 +28,22 @@ class _AppState extends State<App> {
       env: widget.env,
       child: UpdateWrapper(
           child: MaterialApp(
-        locale: context.locale,
         navigatorKey: Nav.navKey,
-        builder: (context, Widget? widget) {
-          setErrorBuilder(context);
-          return widget!;
-        },
-        supportedLocales: context.supportedLocales,
-        localizationsDelegates: context.localizationDelegates,
+        builder: kReleaseMode == false
+            ? DevicePreview.appBuilder
+            : (context, Widget? widget) {
+                setErrorBuilder(context);
+                return widget!;
+              },
         debugShowCheckedModeBanner: false,
         darkTheme: CustomTheme.darkTheme,
         theme: CustomTheme.lightTheme,
         title: Strings.APP_TITLE,
         initialRoute: Routes.root,
         onGenerateRoute: RouteGenerator.generateRoute,
+        locale: context.locale,
+        supportedLocales: context.supportedLocales,
+        localizationsDelegates: context.localizationDelegates,
       )),
     );
   }

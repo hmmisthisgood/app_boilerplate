@@ -5,12 +5,17 @@ import 'package:boilerplate/common/constant/custom_locale.dart';
 
 class LocalWrapper extends StatelessWidget {
   final Widget _child;
+
   LocalWrapper({required Widget child}) : _child = child;
   @override
   Widget build(BuildContext context) {
     return EasyLocalization(
       useOnlyLangCode: true,
-      supportedLocales: [CustomLocale.english, CustomLocale.nepali],
+      supportedLocales: [
+        CustomLocale.english,
+        CustomLocale.nepali,
+        CustomLocale.french
+      ],
       path: "assets/translations",
       fallbackLocale: CustomLocale.english,
       child: _child,
