@@ -52,4 +52,9 @@ class AuthApiProvider {
         url, {"firstName": firstName, "lastName": lastName},
         token: accessToken);
   }
+
+  loginWtihEmailAndPassword(String email, String password) async {
+    final url = "$baseUrl/auth/login";
+    return await apiProvider.post(url, {"email": email, "password": password});
+  }
 }

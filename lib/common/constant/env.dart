@@ -6,12 +6,16 @@ class Env {
 }
 
 class EnvValue {
-  static final Env development =
-      Env('https://dev.example.com.np/api', "awefa1231232", "12312xwa43qwa3");
+  static final Env development = Env(
+      'https://ecommerce-api-3sb4.onrender.com/api',
+      "awefa1231232",
+      "12312xwa43qwa3");
 
-  static final Env staging =
-      Env('https://qa.example.com.np/api', "awefa1231232", "12312xwa43qwa3");
+  static final Env qa = Env('https://ecommerce-api-3sb4.onrender.com/api',
+      "awefa1231232", "12312xwa43qwa3");
 
-  static final Env production =
-      Env('https://api.example.com.np/api', "awefa1231232", "12312xwa43qwa3");
+  static final Env production = Env(
+      'https://ecommerce-api-3sb4.onrender.com/api',
+      "awefa1231232",
+      "12312xwa43qwa3");
 }

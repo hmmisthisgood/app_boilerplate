@@ -7,7 +7,6 @@ import 'package:boilerplate/common/http/api_provider.dart';
 import 'package:boilerplate/common/http/custom_exception.dart';
 import 'package:boilerplate/common/http/response.dart';
 import 'package:boilerplate/common/shared_pref/shared_pref.dart';
-import 'package:boilerplate/common/util/internet_check.dart';
 import 'package:boilerplate/common/util/log.dart';
 import 'package:boilerplate/feature/authentication/model/user.dart';
 
@@ -15,8 +14,8 @@ import 'auth_api_provider.dart';
 
 class UserRepository {
   ApiProvider apiProvider;
+
   late AuthApiProvider authApiProvider;
-  InternetCheck internetCheck;
   Env env;
 
   final String _tokenKey = "appAccessToken";
@@ -26,7 +25,6 @@ class UserRepository {
   UserRepository({
     required this.env,
     required this.apiProvider,
-    required this.internetCheck,
   }) {
     authApiProvider = AuthApiProvider(
       baseUrl: env.baseUrl,
@@ -251,6 +249,24 @@ class UserRepository {
       return DataResponse.error(e.message!);
     } catch (e) {
       Log.e(e);
+      return DataResponse.error(e.toString());
+    }
+  }
+
+  Future<DataResponse> loginWithEmailAndPassword(
+      String email, String password) async {
+    try {
+      final response =
+          await authApiProvider.loginWtihEmailAndPassword(email, password);
+
+      final _token = response['token'];
+
+      await persistToken(_token);
+      final userData = User.fromJson(response['results']);
+      SharedPref.setUser(userData);
+
+      return DataResponse.success(userData);
+    } catch (e, s) {
       return DataResponse.error(e.toString());
     }
   }

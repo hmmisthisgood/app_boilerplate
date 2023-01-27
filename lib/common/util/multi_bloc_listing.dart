@@ -1,3 +1,4 @@
+import 'package:boilerplate/feature/authentication/bloc/authentication_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:boilerplate/common/constant/env.dart';
@@ -15,28 +16,23 @@ class MultiBlocAndRepositoryProvider extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiRepositoryProvider(
       providers: [
-        RepositoryProvider<Env>(
-          create: (context) => env,
-          lazy: true,
-        ),
-        RepositoryProvider<InternetCheck>(
-          create: (context) => InternetCheck(),
-          lazy: true,
-        ),
+        RepositoryProvider<Env>(create: (context) => env, lazy: true),
         RepositoryProvider<ApiProvider>(
-          create: (context) => ApiProvider(),
-          lazy: true,
-        ),
+            create: (context) => ApiProvider(), lazy: true),
         RepositoryProvider<UserRepository>(
           create: (context) => UserRepository(
             env: RepositoryProvider.of<Env>(context),
             apiProvider: RepositoryProvider.of<ApiProvider>(context),
-            internetCheck: RepositoryProvider.of<InternetCheck>(context),
           )..initialState(),
           lazy: true,
         ),
       ],
-      child: child,
+      child: MultiBlocProvider(providers: [
+        BlocProvider(
+          create: (_) => AuthCubit(
+              userRepository: RepositoryProvider.of<UserRepository>(context)),
+        )
+      ], child: child),
     );
   }
 }

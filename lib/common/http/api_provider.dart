@@ -23,9 +23,8 @@ class ApiProvider {
   Future<Map<String, dynamic>> post(String url, dynamic body,
       {String token = '', bool isRefreshRequest = false}) async {
     dynamic responseJson;
-    Dio _dio = Dio(
-      BaseOptions(receiveDataWhenStatusError: true),
-    );
+    Dio _dio = Dio(BaseOptions(receiveDataWhenStatusError: true));
+
     try {
       Map<String, String> header = {
         'content-type': 'application/json',
@@ -34,7 +33,7 @@ class ApiProvider {
       };
 
       if (token.isNotEmpty) {
-        header['Authorization'] = 'Bearer ' + token;
+        header['Authorization'] = 'Bearer $token';
       }
       final dynamic response = await _dio.postUri(
         Uri.parse(url),

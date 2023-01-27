@@ -1,14 +1,13 @@
 import 'package:bloc/bloc.dart';
 import 'package:boilerplate/common/shared_pref/shared_pref.dart';
-import 'package:boilerplate/feature/authentication/resource/user_repository.dart';
 
+import '../resource/user_repository.dart';
 import 'authentication_state.dart';
 
-class AuthenticationCubit extends Cubit<AuthenticationState> {
+class AuthCubit extends Cubit<AuthState> {
   final UserRepository userRepository;
 
-  AuthenticationCubit({required this.userRepository})
-      : super(AuthenticationUninitialized());
+  AuthCubit({required this.userRepository}) : super(AuthUninitialized());
 
   authStart() async {
     final bool firstTimeAppOpen = await SharedPref.getFirstTimeAppOpen();
@@ -21,17 +20,17 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
       final bool hasToken = await userRepository.hasToken();
 
       if (hasToken) {
-        emit(AuthenticationAuthenticated(showLoginToast: false));
+        emit(AuthAuthenticated(showLoginToast: false));
       } else {
-        emit(AuthenticationUnauthenticated());
+        emit(AuthUnauthenticated());
       }
     }
   }
 
   // login({required String token}) async {D
-  //   emit(AuthenticationLoading());
+  //   emit(AuthLoading());
   //   await userRepository.persistToken(token);
-  //   emit(AuthenticationAuthenticated());
+  //   emit(AuthAuthenticated());
   // }
 
   logout() async {
@@ -40,26 +39,30 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
   }
 
   // registerWithGoogle() async {
-  //   emit(AuthenticationLoading());
+  //   emit(AuthLoading());
   //   final res = await userRepository.googleLogin();
   //   if (res.status == Status.Success) {
-  //     emit(AuthenticationAuthenticated(showLoginToast: true));
+  //     emit(AuthAuthenticated(showLoginToast: true));
   //   } else {
-  //     emit(AuthenticationError(message: res.message ?? "Unable to login"));
+  //     emit(AuthError(message: res.message ?? "Unable to login"));
   //   }
   // }
 
   // registerWithFacebook() async {
-  //   emit(AuthenticationLoading());
+  //   emit(AuthLoading());
   //   final res = await userRepository.facebookLogin();
   //   if (res.status == Status.Success) {
-  //     emit(AuthenticationAuthenticated(showLoginToast: true));
+  //     emit(AuthAuthenticated(showLoginToast: true));
   //   } else {
-  //     emit(AuthenticationError(message: res.message ?? "Unable to login"));
+  //     emit(AuthError(message: res.message ?? "Unable to login"));
   //   }
   // }
 
   fetchProfile() async {
     await userRepository.fetchUserProfile();
+  }
+
+  loginWithEmailAndPassword(String email, String password) {
+    userRepository.loginWithEmailAndPassword(email, password);
   }
 }
