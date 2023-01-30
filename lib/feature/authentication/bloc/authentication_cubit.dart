@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:boilerplate/common/http/response.dart';
 import 'package:boilerplate/common/shared_pref/shared_pref.dart';
 
 import '../resource/user_repository.dart';
@@ -8,6 +9,19 @@ class AuthCubit extends Cubit<AuthState> {
   final UserRepository userRepository;
 
   AuthCubit({required this.userRepository}) : super(AuthUninitialized());
+
+  signUpWithEmail(String email, String password,
+      {required String name, required String phoneNumber}) async {
+    emit(AuthLoading());
+    final response = await userRepository.signUpWithEmail(email, password,
+        name: name, phoneNumber: phoneNumber);
+
+    if (response.status == Status.Error) {
+      emit(AuthError(message: response.message!));
+      return;
+    }
+    emit(AuthAuthenticated(showLoginToast: false));
+  }
 
   authStart() async {
     final bool firstTimeAppOpen = await SharedPref.getFirstTimeAppOpen();
@@ -62,7 +76,15 @@ class AuthCubit extends Cubit<AuthState> {
     await userRepository.fetchUserProfile();
   }
 
-  loginWithEmailAndPassword(String email, String password) {
-    userRepository.loginWithEmailAndPassword(email, password);
+  loginWithEmailAndPassword(String email, String password) async {
+    emit(AuthLoading());
+    final response =
+        await userRepository.loginWithEmailAndPassword(email, password);
+
+    if (response.status == Status.Error) {
+      emit(AuthError(message: response.message!));
+      return;
+    }
+    emit(AuthAuthenticated(showLoginToast: false));
   }
 }

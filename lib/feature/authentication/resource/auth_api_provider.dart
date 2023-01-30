@@ -57,4 +57,16 @@ class AuthApiProvider {
     final url = "$baseUrl/auth/login";
     return await apiProvider.post(url, {"email": email, "password": password});
   }
+
+  signUpWithEmail(String email, String password,
+      {required String name, required String phoneNumber}) async {
+    final url = "$baseUrl/auth/register";
+    return await apiProvider.post(url, {
+      "email": email,
+      "password": password,
+      "phone": phoneNumber,
+      "name": name,
+      "address": "Nepal"
+    });
+  }
 }

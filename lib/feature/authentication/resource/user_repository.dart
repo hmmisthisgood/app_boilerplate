@@ -259,13 +259,25 @@ class UserRepository {
       final response =
           await authApiProvider.loginWtihEmailAndPassword(email, password);
 
-      final _token = response['token'];
+      final _token = response["data"]['token'];
 
       await persistToken(_token);
-      final userData = User.fromJson(response['results']);
+      final User userData = User.fromJson(response['data']['results']);
       SharedPref.setUser(userData);
 
       return DataResponse.success(userData);
+    } catch (e, s) {
+      return DataResponse.error(e.toString());
+    }
+  }
+
+  Future<DataResponse> signUpWithEmail(String email, String password,
+      {required String name, required String phoneNumber}) async {
+    try {
+      final response = await authApiProvider.signUpWithEmail(email, password,
+          name: name, phoneNumber: phoneNumber);
+
+      return DataResponse.success(response);
     } catch (e, s) {
       return DataResponse.error(e.toString());
     }

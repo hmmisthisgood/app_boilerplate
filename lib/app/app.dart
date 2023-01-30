@@ -7,7 +7,7 @@ import 'package:boilerplate/common/constant/strings.dart';
 import 'package:boilerplate/common/navigation/nav.dart';
 import 'package:boilerplate/common/route/route_generator.dart';
 import 'package:boilerplate/common/route/routes.dart';
-import 'package:boilerplate/common/util/multi_bloc_listing.dart';
+import 'package:boilerplate/common/util/multi_repo_povider.dart';
 import 'package:boilerplate/common/widget/global_error_widget.dart';
 
 class App extends StatefulWidget {

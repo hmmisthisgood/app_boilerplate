@@ -8,7 +8,9 @@ class OnboardWidget extends StatelessWidget {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [Text("test")],
+          children: [
+            Text("test"),
+          ],
         ),
       ),
     );

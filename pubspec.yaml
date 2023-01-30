@@ -20,10 +20,14 @@ dependencies:
   cached_network_image: ^3.0.0
   flutter_cache_manager: ^3.0.1
   shimmer: ^2.0.0
+  flutter_svg:
+  fluttertoast:
+  flutter_vector_icons:
 
   # othe utils
   equatable: ^2.0.0
   device_preview:
+  form_field_validator:
 
   # state management
   bloc: ^7.0.0
@@ -37,11 +41,12 @@ dependencies:
 
 
   # nottifications and firebase
-  # firebase_core: ^1.1.1
+  firebase_core:  
   # firebase_messaging: ^10.0.0
   # flutter_local_notifications: ^5.0.0+4
   # flutter_facebook_auth: ^3.3.3+1
-  # google_sign_in: ^5.0.2
+  google_sign_in:
+  firebase_auth: 
 
   # data persistence
   shared_preferences: ^2.0.5
