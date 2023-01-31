@@ -1,3 +1,4 @@
+import 'package:boilerplate/feature/authentication/ui/screen/file_pick_screen.dart';
 import 'package:boilerplate/feature/authentication/ui/screen/sign_in_screen.dart';
 import 'package:boilerplate/feature/authentication/ui/screen/sign_up_screen.dart';
 import 'package:flutter/material.dart';
@@ -16,6 +17,9 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => SignInScreen());
       case Routes.signup:
         return MaterialPageRoute(builder: (_) => SignUpScreen());
+      case Routes.filePick:
+        return MaterialPageRoute(builder: (_) => FilePickScreen());
+
       default:
         return MaterialPageRoute(builder: (_) => SplashPage());
     }

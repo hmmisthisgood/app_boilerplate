@@ -14,7 +14,7 @@ class _SplashPageState extends State<SplashPage> {
   void initState() {
     super.initState();
     Timer(Duration(seconds: 2), () {
-      Navigator.pushReplacementNamed(context, Routes.signIn);
+      Navigator.pushReplacementNamed(context, Routes.filePick);
     });
   }
 

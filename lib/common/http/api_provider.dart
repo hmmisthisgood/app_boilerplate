@@ -155,14 +155,19 @@ class ApiProvider {
     Dio _dio = Dio(
       BaseOptions(receiveDataWhenStatusError: true),
     );
+
+    final bytes = await file.readAsBytes();
+
     try {
       Map<String, String> header = {
         'accept': 'application/json',
-        'origin': '*'
+        'origin': '*',
+        "Content-type": "multipart/form-data"
       };
       if (token.isNotEmpty) {
         header['Authorization'] = 'Bearer ' + token;
       }
+
       final String fileName = file.path.split('/').last;
       // final String _extention = file.path.split('.').last;
 
@@ -173,6 +178,14 @@ class ApiProvider {
           contentType: parse.MediaType('image', file.path.split('.').last),
         ),
       });
+
+      final Map<String, dynamic> body = {
+        "id_front": MultipartFile.fromFile("./passport.jpg"),
+        "id_back": MultipartFile.fromFile("./back.jpg"),
+        "photo": MultipartFile.fromFile("./photo.jpg"),
+      };
+      final formdata = FormData.fromMap(body);
+
       final Response<dynamic> response = await _dio.post<dynamic>(url,
           data: formData, options: Options(headers: header));
 
